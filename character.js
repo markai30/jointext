@@ -10,14 +10,20 @@ $('.tool-item').click(function(){
 	if($class.indexOf("active") == -1 && $class.indexOf("pack-tool") > -1){	
 		$('.tool-item.active').removeClass("active");
 		$(this).addClass("active");
-		$('.page-join').slideUp(500);
+		$('.page-join,.page-splitchar').slideUp(500);
 		$('.page-encode').slideDown(500);
 	}
 	if($class.indexOf("active") == -1 && $class.indexOf("join-tool") > -1){
 		$('.tool-item.active').removeClass("active");
 		$(this).addClass("active");
-		$('.page-encode').slideUp(500);
+		$('.page-encode,.page-splitchar').slideUp(500);
 		$('.page-join').slideDown(500);
+	}
+	if($class.indexOf("active") == -1 && $class.indexOf("split-tool") > -1){
+		$('.tool-item.active').removeClass("active");
+		$(this).addClass("active");
+		$('.page-encode,.page-join').slideUp(500);
+		$('.page-splitchar').slideDown(500);
 	}
 })
 
