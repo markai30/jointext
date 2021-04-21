@@ -172,7 +172,7 @@ li.item-file,.Item-child {
     cursor: pointer;
 }
 
-li.item-file:before {content:"▼";font-size: 11px;vertical-align: middle;}
+li.item-file:before {content:"â–¼";font-size: 11px;vertical-align: middle;}
 label.title-small.limit-line{display:none}
 .limit-line[style*="inline"] {
     display: block!important;
@@ -194,7 +194,7 @@ li.Item-child {
     width: 300px;
 }
 
-li.Item-child:before {content: "►";font-size: 11px;padding-right: 5px;}
+li.Item-child:before {content: "â–º";font-size: 11px;padding-right: 5px;}
 
 .loading-run{
 	z-index:-1;
@@ -245,7 +245,7 @@ li.item-file {
     cursor: pointer!important;
 }
 
-li.item-file.active:before {    content: "►";}
+li.item-file.active:before {    content: "â–º";}
 small.copyright a {
     color: white;
     text-shadow: 1px 1px 1px mediumblue,1px 1px 1px mediumblue;
@@ -557,8 +557,8 @@ ul.type-tool {
 
 ul.type-tool li {
     display: inline-block;
-    margin-right: 100px;
-    padding: 10px 20px;
+    margin-right: 34px;
+    padding: 10px;
     font-size: 40px;
     background: darkgray;
     cursor: pointer;
@@ -601,3 +601,55 @@ ul.type-tool li:hover {
 .button-upload-file label:hover,.title-small:hover {
     background: beige;
 }
+textarea.char-result-text,textarea.char-result-char {
+    width: 45%;
+    margin-right: 15px;
+    height: 537px;
+    margin-left: 15px;
+	transition: all 0.5s;
+}
+
+.page-content.page-splitchar .input-page {
+    margin-top: 20px;
+}
+
+.page-splitchar .tool-split-char {
+    margin-top: 15px;
+}
+
+.page-splitchar .title-main {
+    padding: 5px;
+}
+
+.tool-split-char input {
+    padding: 10px;
+    width: 85%;
+    display: block;
+    margin: 5px;
+}
+
+.tool-split-char {
+    text-align: center;
+}
+
+.tool-split-char button {
+    margin: 5px 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 0;
+    color: white;
+    font-weight: bold;
+}
+
+button.submit-join {background: cornflowerblue;}
+
+.page-splitchar {
+    width: 1123px;
+    z-index: 10;
+    background: white;
+    height: 783px;
+    border: 2px solid #ccc;
+	display:none
+}
+
+.submit-split{background:brown}

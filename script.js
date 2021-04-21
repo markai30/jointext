@@ -15,6 +15,14 @@ $NameFileSplit = "";
 $NumberFileSplit = 0;
 $UploadType = true;
 
+var $regSave = localStorage.getItem("regKey");
+if($regSave != null){
+	var $vreg = $regSave.split("*tach*")[0];
+	var $trep = $regSave.split("*tach*")[1];
+	$('.charRegexpSplit').val($vreg);
+	$('.charRegexpJoin').val($trep);
+}
+
 $('input[name="upload-type-file"]').change(function() {
   if (this.value == "file") {
     $UploadType = true;
@@ -303,3 +311,87 @@ function compleJoin() {
   }, 2000);
 
 }
+
+function submitSplit(){
+	var $vreg = $('.charRegexpSplit').val();
+	var $trep = $('.charRegexpJoin').val();
+	if($trep.length < 1 || $vreg.length < 1){
+		alert("Vui lòng nhập các cụm từ hoặc từ thay thế vào ô.")
+	}
+	else{
+		$run = false;
+		var $reg = new RegExp($vreg,"g");
+		var $source = $('.char-result-text').val();
+		var $obj = $source.split("\n");
+		var $result = ""
+		var $allCum = "";
+		for(var $j = 0;$j < $obj.length;$j++){
+			var $bl = $obj[$j];
+			var $mt = $bl.match($reg);
+			var $plus = "";
+			if($mt){
+				for(var $t = 0;$t < $mt.length;$t++){
+					var $l = $mt[$t];
+					$bl = $bl.replace($l,$trep + $t);	
+					$plus += $l + "\t";
+				}
+				$allCum += $plus + "\n";
+				$result += $bl + "\n";
+			}
+			else{
+				$result += $bl + "\n"
+			}
+
+		}
+		$('.char-result-text').val($result);
+		$('.char-result-char').val($allCum);
+		var $regKey = $vreg + "*tach*" + $trep;
+		var $regSave = localStorage.setItem("regKey", $regKey);
+		$('textarea.char-result-text, textarea.char-result-char').css("background","cornsilk");
+		setTimeout(function(){
+			$('textarea.char-result-text, textarea.char-result-char').css("background","white");		
+		},5000);
+
+	}
+
+}
+
+function submitJoin(){
+	var $vreg = $('.charRegexpSplit').val();
+	var $trep = $('.charRegexpJoin').val();
+	if($trep.length < 1 || $vreg.length < 1){
+		alert("Vui lòng nhập các cụm từ hoặc từ thay thế vào ô.")
+	}
+	else{
+		$run = false;
+		var $reg = new RegExp($vreg,"g");
+		var $source = $('.char-result-text').val();
+		var $comple = $('.char-result-char').val();
+		var $obj = $comple.split("\n");
+		var $textAll = $source.split("\n");
+		var $result = ""
+		var $allCum = "";
+		for(var $j = 0;$j < $obj.length;$j++){
+			var $bl = $obj[$j];
+			var $tl = $textAll[$j];
+			var $mt = $bl.match($reg);
+			var $plus = "";
+			if($mt){
+				for(var $t = 0;$t < $mt.length;$t++){
+					var $l = $mt[$t];
+					$tl = $tl.replace("#mt" + $t,$l);
+				}
+				$result += $tl + "\n"
+			}
+			else{
+				$result += $tl + "\n"
+			}
+
+		}
+		$('.char-result-text').val($result);
+		$('textarea.char-result-text').css("background","cornsilk");
+		setTimeout(function(){
+			$('textarea.char-result-text').css("background","white");		
+		},5000)
+	}
+};

@@ -24,6 +24,7 @@
 <ul class="type-tool" style="text-align: center;">
 	<li class="tool-item active join-tool">Công Cụ Nối File</li>
 	<li class="tool-item pack-tool">Công Cụ Xử Lý Text</li>
+	<li class="tool-item split-tool">Công Cụ Tách Text</li>
 </ul>
 <div id="main-body">
 	<div id="main-page">
@@ -154,6 +155,22 @@
 			
 
 		</div>
+		<div class="page-content page-splitchar">
+			<div class="title-main">
+				<p>Công cụ tách các cụm từ</p>
+			</div>
+			<div class="tool-split-char">
+				<input type="text" class="charRegexpSplit" placeholder="Nhập các cụm từ cần tách, có thể dùng regexp" />
+				<input type="text" class="charRegexpJoin" placeholder="Nhập các ký tự tạm thay thế" />
+				<button class="submit-split" onclick="submitSplit()">Tách Cụm Từ</button>
+				<button class="submit-join" onclick="submitJoin()">Gộp Cụm Từ</button>
+			</div>
+			<div class="input-page">
+				<textarea placeholder="Nhập đoạn text bạn cần mã hóa ký tự vào đây." class="char-result-text"></textarea>
+				<textarea placeholder="Nhập đoạn text bạn cần mã hóa ký tự vào đây." class="char-result-char"></textarea>
+			</div>	
+		</div>
+	
 	</div>
 
 	<div id="main-list-file">
