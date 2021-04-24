@@ -333,7 +333,7 @@ function submitSplit(){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
 					$bl = $bl.replace($l,$trep + $t + " ");	
-					$plus += $l + ";";
+					$plus += $l + " ";
 				}
 				$allCum += $plus + "\n";
 				$result += $bl + "\n";
