@@ -379,7 +379,7 @@ function submitJoin(){
 			if($mt){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
-					$tl = $tl.replace("#mt" + $t,$l);
+					$tl = $tl.replace($trep + $t,$l);
 				}
 				$result += $tl + "\n"
 			}
