@@ -332,7 +332,7 @@ function submitSplit(){
 			if($mt){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
-					$bl = $bl.replace($l,$trep + $t);	
+					$bl = $bl.replace($l,$trep + $t + " ");	
 					$plus += $l + "\t";
 				}
 				$allCum += $plus + "\n";
@@ -379,7 +379,7 @@ function submitJoin(){
 			if($mt){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
-					$tl = $tl.replace($trep + $t,$l);
+					$tl = $tl.replace($trep + $t + " ",$l);
 				}
 				$result += $tl + "\n"
 			}
