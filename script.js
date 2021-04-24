@@ -365,6 +365,7 @@ function submitJoin(){
 	else{
 		$run = false;
 		var $reg = new RegExp($vreg,"g");
+        console.log("$reg = " + $reg);
 		var $source = $('.char-result-text').val();
 		var $comple = $('.char-result-char').val();
 		var $obj = $comple.split("\n");
@@ -373,18 +374,26 @@ function submitJoin(){
 		var $allCum = "";
 		for(var $j = 0;$j < $obj.length;$j++){
 			var $bl = $obj[$j];
+            console.log("$bl = " + $bl);
 			var $tl = $textAll[$j];
+            console.log("$tl = " + $tl);
 			var $mt = $bl.match($reg);
+            console.log("$mt = " + $mt);
 			var $plus = "";
 			if($mt){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
+                    console.log("$l = " + $l);
 					$tl = $tl.replace($trep + $t + " ",$l);
+                    console.log("replace = " + $trep + $t + " ");
 				}
 				$result += $tl + "\n"
 			}
 			else{
-				$result += $tl + "\n"
+                if($tl != undefined){
+				    $result += $tl + "\n"
+                    console.log("$tl = " + $tl)
+                }
 			}
 
 		}
