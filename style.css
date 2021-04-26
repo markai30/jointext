@@ -653,3 +653,11 @@ button.submit-join {background: cornflowerblue;}
 }
 
 .submit-split{background:brown}
+
+button.submit-replace {
+    background: blue;
+}
+
+.tool-split-char button:hover {
+    background: black;
+}

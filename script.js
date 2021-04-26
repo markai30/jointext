@@ -384,7 +384,7 @@ function submitJoin(){
 				for(var $t = 0;$t < $mt.length;$t++){
 					var $l = $mt[$t];
                     console.log("$l = " + $l);
-					$tl = $tl.replace($trep + $t + " ",$l);
+					$tl = $tl.replace($trep + $t,$l);
                     console.log("replace = " + $trep + $t + " ");
 				}
 				$result += $tl + "\n"
@@ -404,3 +404,29 @@ function submitJoin(){
 		},5000)
 	}
 };
+
+
+function submitReplace(){
+	var $cumReplace = $('.char-result-char').val();	// Replace Text
+	//console.log("$cumReplace" + $cumReplace)
+	$lineCum = $cumReplace.split("\n");
+	var $TextAll = $('.char-result-text').val();
+	$packCum = new Object();
+	for(var $j = 0;$j < $lineCum.length;$j++){
+		var $block = $lineCum[$j];
+		var $split = $block.split("\t");
+		if($block.match(/\t/)){
+			var $in = $split[0];
+			//console.log("$in: " + $in)
+			var $out = $split[1];
+			//console.log("$out: " + $out)
+			$packCum[$in] = $out;
+		}
+	}
+	var $result = mapReplace($TextAll,$packCum);
+	$('.char-result-text').val($result);
+	$('textarea.char-result-text').css("background","cornsilk");
+		setTimeout(function(){
+			$('textarea.char-result-text').css("background","white");		
+	},5000)
+}
